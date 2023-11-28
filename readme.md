@@ -29,14 +29,18 @@ ACCESS_TOKEN的获取方式：
 首先用 `npm install` 安装所需依赖。
 
 默认使用pm2保护运行，请自行更改pm2.json中数值，之后切换到bot文件夹下执行：
-```pm2 start pm2.json```
+```
+pm2 start pm2.json
+```
 
 ## 非必须步骤
 
 ### 向Firefish网盘上传文件
 
 1. （可选）在Firefish网盘中创建文件夹。  
-```nodejs newfolder.js```
+```
+nodejs newfolder.js
+```
 获得的folderId会存在folderlist.json里，用于第三步上传时指定目标文件夹。
 
 2. 向Firefish网盘上传文件。
@@ -49,10 +53,12 @@ ACCESS_TOKEN的获取方式：
 
 如需规定图片描述，请自定义修改upload.js中的 `comment` 部分并取消注释。
 
-更多自定义内容请参考API文档中 drive/files/create 部分：https://firefish.social/api-doc#operation/drive/files/create
+更多自定义内容请参考API文档中 [drive/files/create 部分](https://firefish.social/api-doc#operation/drive/files/create)
 
 最后进行上传：  
-```nodejs upload.js```
+```
+nodejs upload.js
+```
 
 3. 创建 list_file.json 的副本 list_image.json ，用于 bot.js 读取。
 
@@ -67,4 +73,4 @@ data: {
 ```
 
 可自定义贴文可见性、文字内容等。  
-具体请参考API文档中 notes/create 部分：https://firefish.social/api-doc#operation/notes/create
+具体请参考API文档中 [notes/create 部分](https://firefish.social/api-doc#operation/notes/create)
