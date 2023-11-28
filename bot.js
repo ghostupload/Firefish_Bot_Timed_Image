@@ -38,19 +38,25 @@ async function notescreate() {
   const fileIds = [image.id];
 
   // 调用 notes/create API
-  const response = await axios({
-    method: 'post',
-    url: `${API_URL}/notes/create`,
-    headers: {
-      'Authorization': `Bearer ${ACCESS_TOKEN}`
-    },
-  // 请按需修改，默认可见性为首页可见。
-  // 请参考官方API文档中notes/create部分。
-    data: {
-      visibility: "home",
-      fileIds: fileIds
-    }
-  });
+  let response;
+  try {
+    response = await axios({
+      method: 'post',
+      url: `${API_URL}/notes/create`,
+      headers: {
+        'Authorization': `Bearer ${ACCESS_TOKEN}`
+      },
+	  // 请按需修改data部分，默认可见性为首页可见。
+      // 请参考官方API文档中notes/create部分。
+      data: {
+        visibility: "home",
+        fileIds: fileIds
+      }
+    });
+  } catch (error) {
+    console.error('Error making API request:', error);
+    return;
+  }
 
   // 更新 list_image.json
   fs.writeFileSync(imagelistPath, JSON.stringify(imagelist, null, 2));
@@ -59,9 +65,8 @@ async function notescreate() {
   // 可自行修改所需内容
   const botNotes = fs.existsSync(botNotesPath) ? JSON.parse(fs.readFileSync(botNotesPath, 'utf8')) : [];
   botNotes.push({
-    noteId: response.data.createdNote.id,
+    id: response.data.createdNote.id,
     createdAt: response.data.createdNote.createdAt,
-    url: response.data.createdNote.url,
     imageName: image.name,
     imageId: image.id,
     imageComment: image.comment,
