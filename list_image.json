@@ -1,0 +1,9 @@
+[
+  {
+    "id": "id of the file in your Firefish Drive."
+  },
+  {
+    "name": "file_name_example.jpg",
+    "id": "ONLY the id is necessary. But you can also list the name etc. here."
+  }
+]

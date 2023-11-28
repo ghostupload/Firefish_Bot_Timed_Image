@@ -1,0 +1,15 @@
+{
+    "apps": [
+      {
+        "name": "Daily_Pic_for_Firefish",
+        "script": "bot.js",
+        "log_date_format": "YYYY-MM-DD HH:mm:ss",
+        "error_file": "logs/DailyPic_error.log",
+        "out_file": "logs/DailyPic_out.log",
+        "pid_file": "pids/DailyPic.pid",
+        "min_uptime": "60s",
+        "max_restarts": 15,
+        "max_memory_restart": "128M"
+      }
+    ]
+  }
