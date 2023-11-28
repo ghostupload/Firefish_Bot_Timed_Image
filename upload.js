@@ -43,14 +43,17 @@ async function uploadFile(filePath) {
       const fileData = response.data;
       filelist.push({ name: fileData.name, id: fileData.id, comment: fileData.comment, url: fileData.url }); // list_file.json中所记录内容
       logStream.write(`Uploaded: ${fileData.name} - ${fileData.id}\n`);
+	  console.log("Uploaded successfully!"); 
 	  const newFilePath = path.join(uploadedFolderPath, fileName);
       fs.renameSync(filePath, newFilePath);
       logStream.write(`Moved: ${fileName} to ${newFilePath}\n`);
     } else {
       logStream.write(`Error uploading ${fileName}: ${response.status}\n`);
+	  console.log("Failed to upload ${fileName}."); 
     }
   } catch (error) {
     logStream.write(`Error uploading ${fileName}: ${error}\n`);
+	console.log("Error!");
   }
 }
 
