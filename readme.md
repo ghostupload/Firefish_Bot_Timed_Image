@@ -41,7 +41,7 @@ pm2 start pm2.json
 ```
 nodejs newfolder.js
 ```
-获得的folderId会存在folderlist.json里，用于下一步上传时指定目标文件夹。
+获得的folderId会存在list_folder.json里，用于下一步上传时指定目标文件夹。
 
 2. 向Firefish网盘上传文件。
 
