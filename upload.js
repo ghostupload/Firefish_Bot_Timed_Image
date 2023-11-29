@@ -10,7 +10,7 @@ const folderPath = './images'; // 请设置图片文件夹路径
 const filelistPath = 'list_file.json';
 const uploadedFolderPath = path.join(folderPath, 'uploaded'); // 上传过的图片存放于此
 
-// 读取现有的 list_folder.json，如果不存在则初始化为空数组
+// 读取现有的 list_file.json，如果不存在则初始化为空数组
 const filelist = fs.existsSync(filelistPath) ? JSON.parse(fs.readFileSync(filelistPath, 'utf8')) : [];
 
 // 确保 uploaded 文件夹存在，如果不存在则创建
