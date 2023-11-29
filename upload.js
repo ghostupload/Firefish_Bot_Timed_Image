@@ -41,7 +41,12 @@ async function uploadFile(filePath) {
 
     if (response.status === 200) {
       const fileData = response.data;
-      filelist.push({ name: fileData.name, id: fileData.id, comment: fileData.comment, url: fileData.url }); // list_file.json中所记录内容
+      filelist.push({
+	  name: fileData.name,
+          id: fileData.id,
+	  comment: fileData.comment,
+	  url: fileData.url
+        }); // list_file.json中所记录内容
       logStream.write(`Uploaded: ${fileData.name} - ${fileData.id}\n`);
 	  console.log("Uploaded successfully!"); 
 	  const newFilePath = path.join(uploadedFolderPath, fileName);
