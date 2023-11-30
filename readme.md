@@ -1,4 +1,4 @@
-# Firefish Bot: Timed Image Noting
+# Firefish Bot: Timed Image Posting
 
 一个在Firefish上定时发送图片的bot。  
 图片文件来自Firefish网盘，请将图片文件对应的id存在 list_image.json 中，Bot将依次发送，每次一张。
