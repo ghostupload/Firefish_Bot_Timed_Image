@@ -10,7 +10,7 @@ const folderPath = './images'; // 请设置图片文件夹路径
 const filelistPath = 'list_file.json'; // 上传结果记录在 list_file.json 里
 const uploadedFolderPath = path.join(folderPath, 'uploaded'); // 上传过的图片存放于此
 
-// 读取现有的 list_folder.json，如果不存在则初始化为空数组
+// 读取现有的 list_file.json，如果不存在则初始化为空数组
 const filelist = fs.existsSync(filelistPath) ? JSON.parse(fs.readFileSync(filelistPath, 'utf8')) : [];
 
 // 确保 uploaded 文件夹存在，如果不存在则创建
@@ -41,7 +41,16 @@ async function uploadFile(filePath) {
 
     if (response.status === 200) {
       const fileData = response.data;
+<<<<<<< HEAD
       filelist.push({ name: fileData.name, id: fileData.id, comment: fileData.comment, url: fileData.url }); // list_file.json 中所记录内容
+=======
+      filelist.push({
+	  name: fileData.name,
+          id: fileData.id,
+	  comment: fileData.comment,
+	  url: fileData.url
+        }); // list_file.json中所记录内容
+>>>>>>> b4ffe4ddfedc48ca812d569d891466036e547ecc
       logStream.write(`Uploaded: ${fileData.name} - ${fileData.id}\n`);
 	  console.log("Uploaded successfully!"); 
 	  const newFilePath = path.join(uploadedFolderPath, fileName);
